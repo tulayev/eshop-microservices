@@ -8,8 +8,10 @@ namespace Catalog.API.Data
         {
             using var session = store.LightweightSession();
 
-            if (await session.Query<Product>().AnyAsync())
+            if (await session.Query<Product>().AnyAsync()) 
+            {
                 return;
+            }
 
             // Marten UPSERT will cater for existing records
             session.Store(GetPreconfiguredProducts());
