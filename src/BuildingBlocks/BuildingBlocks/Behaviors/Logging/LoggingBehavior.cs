@@ -1,17 +1,16 @@
 ﻿using MediatR;
-using Microsoft.Extensions.Logging;
 using System.Diagnostics;
 
-namespace BuildingBlocks.Behaviors
+namespace BuildingBlocks.Behaviors.Logging
 {
     public class LoggingBehavior<TRequest, TResponse>
         : IPipelineBehavior<TRequest, TResponse>
         where TRequest : notnull, IRequest<TResponse>
         where TResponse : notnull
     {
-        private readonly ILogger<LoggingBehavior<TRequest, TResponse>> _logger;
+        private readonly IAppLogger _logger;
 
-        public LoggingBehavior(ILogger<LoggingBehavior<TRequest, TResponse>> logger)
+        public LoggingBehavior(IAppLogger logger)
         {
             _logger = logger;
         }
@@ -30,7 +29,7 @@ namespace BuildingBlocks.Behaviors
 
             timer.Stop();
             var timeTaken = timer.Elapsed;
-            
+
             if (timeTaken.Seconds > 3)
             {
                 _logger.LogWarning("[PERFORMANCE] The request {Request} took {TimeTaken}",

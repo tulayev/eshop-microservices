@@ -1,4 +1,5 @@
 using BuildingBlocks.Behaviors;
+using BuildingBlocks.Behaviors.Logging;
 using BuildingBlocks.Exceptions.Handler;
 using Catalog.API.Data;
 using HealthChecks.UI.Client;
@@ -27,6 +28,7 @@ builder.Services.AddValidatorsFromAssembly(typeof(Program).Assembly);
 builder.Services.AddExceptionHandler<CustomExceptionHandler>();
 builder.Services.AddHealthChecks()
     .AddNpgSql(builder.Configuration.GetConnectionString("Database")!);
+builder.Services.AddSingleton<IAppLogger, NLogAdapter>();
 
 var app = builder.Build();
 
