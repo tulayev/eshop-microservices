@@ -1,7 +1,5 @@
 ﻿using MediatR;
 using Microsoft.EntityFrameworkCore.Diagnostics;
-using Microsoft.EntityFrameworkCore;
-using Ordering.Domain.Abstractions;
 
 namespace Ordering.Infrastructure.Data.Interceptors
 {

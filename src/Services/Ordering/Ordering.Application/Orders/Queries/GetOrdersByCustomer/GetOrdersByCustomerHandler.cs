@@ -1,6 +1,4 @@
-﻿using Ordering.Domain.ValueObjects;
-
-namespace Ordering.Application.Orders.Queries.GetOrdersByCustomer
+﻿namespace Ordering.Application.Orders.Queries.GetOrdersByCustomer
 {
     public class GetOrdersByCustomerHandler(IApplicationDbContext dbContext) : IQueryHandler<GetOrdersByCustomerQuery, GetOrdersByCustomerResult>
     {
