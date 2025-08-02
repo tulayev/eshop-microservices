@@ -10,7 +10,7 @@ namespace BuildingBlocks.Behaviors.Logging
             var baseDir = AppContext.BaseDirectory;
 
             // Go up to the solution src folder
-            var rootLogDir = Path.GetFullPath(Path.Combine(baseDir, "..", "..", "..", "..", "Logs"));
+            var rootLogDir = Path.GetFullPath(Path.Combine(baseDir, "..", "..", "..", "..", "..", "..", "Logs"));
 
             // Detect service name from entry assembly (e.g., Ordering.API)
             var entryAssembly = Assembly.GetEntryAssembly();
