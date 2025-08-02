@@ -23,6 +23,7 @@
 
             return basket;
         }
+
         public async Task<bool> DeleteBasketAsync(string userName, CancellationToken cancellationToken = default)
         {
             _session.Delete<ShoppingCart>(userName);
